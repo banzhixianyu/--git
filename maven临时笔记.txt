@@ -101,3 +101,18 @@ git checkout 分支名
 git merge 分支名
 发生冲突后直接在文件中进行冲突解决
 然后先将文件add到暂存区 再commit commit的时候不要加文件名 直接commit
+
+创建git仓库
+登录后进入首页点击头像旁边的加号，选择new repository
+然后输入仓库名 然后创建仓库
+
+远程库的地址
+首页的左边有你的库，点击去就有地址
+
+再本地查看库的别名 
+git remote -v
+
+给远程库设置别名
+git remote add 别名 库地址
+
+将本地库的资源推送到远程库
