@@ -1,0 +1,103 @@
+git + idea + maven
+git: 分布式版本控制系统
+创建者：林纳斯托瓦兹
+
+git的本地结构：
+  git本地结构
+      本地库
+      暂存区：git commit
+      工作区：git add
+代码控制中心
+  团队内部协作
+  跨团队协作
+
+托管中心种类
+局域网环境下: gitLab
+外网环境： gitHub Gitee
+
+构建一个git仓库
+设置全局用户名：
+ git config --global user.name "十级打字员"
+设置邮箱：
+git config --global user.email "xxxx"
+本地仓库初始化操作
+git init
+可以得到一个 .git隐藏目录
+这个目录下有一个config的文件 主要是配置信息
+.git目录下的内容不要动
+
+git常用命令
+add 
+comment
+将文件提交到暂存区 git add xxx
+
+将文件提交到本地库 git commit -m "注释" 提交的文件
+注意：不放在本地仓库中的文件，git是不进行管理的
+即使放在本地仓库的文件，git也不管理，必须通过add,commit 命令操作才可以将内容提交到本地库
+
+查看工作区和暂存区的状态
+git status 
+
+查看git日志
+git log
+当历史记录太多，有分页的效果
+下一页：空格
+上一页：b
+退出：q
+
+一次提交记录用一行展示
+git log --pretty = oneline
+
+一次提交记录用一行展示 显示部分索引
+git log --oneline
+
+一次提交记录用一行展示 比上面多了 HEAD@{数字} 表示指证回到当前版本需要走多少步
+git reflog
+
+git本地仓库回退命令
+git reset --hard 回退的索引
+使用-- hard 参数时 
+本地库的指针移动的同时，重置暂存区，重置工作区
+使用了这个命令后工作区中的内容会被清空
+
+git reset --mixed
+使用--mixed参数
+本地库的指针移动的同时，重置暂存区工作区不动
+
+git reset --soft
+使用--soft参数
+本地库指针移动的时候，暂存区，工作区都不动
+以后用的多的就第一种 --hard
+
+git reset --hard HEAD 回退到当前版本
+
+回复被删除的文件（本地仓库/暂存区/工作区）
+只需要回退一些版本就ok 
+暂存区就再回退一下到当前版本	
+
+将工作区中的文件和暂存区中的文件进行比较
+git diff 文件名
+工作区和暂存区中所有的差异 
+git diff
+
+暂存区和本地库内容比对
+git diff HEAD（head是当前指针也可以选指针） 文件名
+
+一个文件在创建后被add到了git上 后续就不需要add了直接commit就行
+
+分支
+在版本控制中，使用多条线同时推进多个任务。这里说的多条线就是多个分支
+
+查看分支
+git branch -v （-v可选 表示最新版本是什么）
+
+创建分支
+git branch 分支名
+
+切换分支
+git checkout 分支名
+
+分支合并
+git merge 分支名
+发生冲突后直接在文件中进行冲突解决
+然后先将文件add到暂存区 再commit commit的时候不要加文件名 直接commit
